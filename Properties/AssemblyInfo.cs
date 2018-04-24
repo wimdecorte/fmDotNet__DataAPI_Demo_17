@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Connecting Data Inc")]
 [assembly: AssemblyProduct("fmDotNet__DataAPI_Demo")]
-[assembly: AssemblyCopyright("Copyright © Connecting Data Inc., 2017")]
+[assembly: AssemblyCopyright("Copyright © Connecting Data Inc., 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
