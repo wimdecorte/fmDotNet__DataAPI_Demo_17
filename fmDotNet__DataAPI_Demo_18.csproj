@@ -1,0 +1,164 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{651EE51D-F35B-4253-9831-61550E34EFE7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>fmDotNet__DataAPI_Demo_18</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FMdotNet__DataAPI, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FMdotNet__DataAPI.18.0.0\lib\netstandard2.0\FMdotNet__DataAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include=".vs\slnx.sqlite" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\18\2dfbbd965c56906a4b9707664e82cdd5c0f048" />
+    <None Include=".git\objects\19\74472a57f903a16997d493a109722af509d281" />
+    <None Include=".git\objects\1d\4c875f6617784e4cc02a023c73ce9325b82186" />
+    <None Include=".git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <None Include=".git\objects\20\233389098212e5aaeccca3da8a1a588b1d993e" />
+    <None Include=".git\objects\36\9100e466fb8378fb567d6cc3301fd4b2ac0bc4" />
+    <None Include=".git\objects\3c\4efe206bd0e7230ad0ae8396a3c883c8207906" />
+    <None Include=".git\objects\3d\182db8197afb2c55389bac3160bda0d4c5ba09" />
+    <None Include=".git\objects\3f\8b03fd0533e04621f44e190d8d2bf76b277f65" />
+    <None Include=".git\objects\59\65ca7d9add9c629d1b401ec99b409ddb65ccac" />
+    <None Include=".git\objects\5c\57800c2db58bde82ebe54132d81e9f2cdf6e01" />
+    <None Include=".git\objects\5f\65eabb30254deedfb6b206cb78919b02f483a4" />
+    <None Include=".git\objects\60\56585638e3a3b9e4f9a5b4b131e5f3726ade19" />
+    <None Include=".git\objects\62\83b5ee5cbd8560087e0c77ad13298f0a5b97f7" />
+    <None Include=".git\objects\6c\4ea75e472e5e5e4c6bf4c9fd5b00d8e32e2923" />
+    <None Include=".git\objects\6f\30d097c0837d39d86f3a1827f749fbcf221c8b" />
+    <None Include=".git\objects\70\a5b93ed03b8eb1baac8ecd82aed81aa1353ee8" />
+    <None Include=".git\objects\91\e3470e1645e6e8d0de6fe9f6b242f366e9a393" />
+    <None Include=".git\objects\a6\36a530b091d620c84a1231c6fa6eb21714f1b4" />
+    <None Include=".git\objects\ae\607ea23428a42184286eec58fd1327a1db5bd3" />
+    <None Include=".git\objects\b9\fe5cfefb380954b6f0b6e931477fff06d07e0d" />
+    <None Include=".git\objects\ba\5aea6afa8d5f5a8c96446e99a7f4092722809c" />
+    <None Include=".git\objects\d1\22af2ec13a48dd54f243a412085858646eb90f" />
+    <None Include=".git\objects\da\deef606158197efe88a5ffef5f3a21dbbc9e28" />
+    <None Include=".git\objects\e4\ac9c6d71c75b24d39d9f95d2ae2bff0b755005" />
+    <None Include=".git\objects\eb\6728f7098f0890f13f73aca083ea20e9fc5f5c" />
+    <None Include=".git\objects\ec\ccb50cd38121f82b475904d2a9174c80123d9a" />
+    <None Include=".git\objects\ef\4828a21581627b5515c40fc6b8cb01b3c7906b" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".vs\fmDotNet__DataAPI_Demo_17\v15\.suo" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="App.config" />
+    <None Include="App.config.sample" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\fmDotNet__DataAPI_Demo_18\v15\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

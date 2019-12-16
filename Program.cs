@@ -45,8 +45,8 @@ namespace fmDotNet__DataAPI_Demo
             int newRecordModId = 0;
             int emptyRecordId = 0;
 
-            // start the connection to FMS, specifying the FMS17 version
-            var fmserver = new FMS17(server, testAccount, testPassword);
+            // start the connection to FMS, specifying the FMS18 version
+            var fmserver = new FMS18(server, testAccount, testPassword);
 
             // specify what file to work with
             // data from related files will also be available provided
@@ -158,8 +158,8 @@ namespace fmDotNet__DataAPI_Demo
             // add the related field - use 0 for the related record id to indicate that it is a new record
             // FMS accepts an empty recordId to denote a new related record
             // here were are creating one new record and setting two related fields
-            request.AddRelatedField("fruit", "cake_FRUIT__ac", GetRandomString(), 0);
-            request.AddRelatedField("number_field", "cake_FRUIT__ac", "7", 0);
+            request.AddRelatedField("fruit", "cake_FRUIT__ac", GetRandomString(), "0");
+            request.AddRelatedField("number_field", "cake_FRUIT__ac", "7", "0");
             response = await request.Execute();
             if (fmserver.lastErrorCode == 0)
             {
@@ -180,7 +180,7 @@ namespace fmDotNet__DataAPI_Demo
             var editRequest = fmserver.EditRequest(newRecordId);
 
             // add the new related record
-            editRequest.AddRelatedField("fruit", "cake_FRUIT__ac", GetRandomString(), 0);
+            editRequest.AddRelatedField("fruit", "cake_FRUIT__ac", GetRandomString(), "0");
             response = await editRequest.Execute();
             if (fmserver.lastErrorCode == 0)
             {
@@ -270,14 +270,14 @@ namespace fmDotNet__DataAPI_Demo
             // save this reponse, we'll re-use it
             var savedResponseWithPortals = getResponse;
 
-            if (getResponse.errorCode == 0)
+            if (getResponse.ErrorCode == 0)
             {
-                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.recordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
+                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.FoundRecordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
                 newRecordModId = Convert.ToInt32(getResponse.data.foundSet.records[0].modId);
             }
             else
             {
-                Console.WriteLine(getResponse.errorCode.ToString());
+                Console.WriteLine(getResponse.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -293,14 +293,14 @@ namespace fmDotNet__DataAPI_Demo
             // execute the record
             getResponse = await findRequest.Execute();
 
-            if (getResponse.errorCode == 0)
+            if (getResponse.ErrorCode == 0)
             {
-                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.recordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
+                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.FoundRecordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
                 newRecordModId = Convert.ToInt32(getResponse.data.foundSet.records[0].modId);
             }
             else
             {
-                Console.WriteLine(getResponse.errorCode.ToString());
+                Console.WriteLine(getResponse.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -318,14 +318,14 @@ namespace fmDotNet__DataAPI_Demo
             // execute the record
             getResponse = await findRequest.Execute();
 
-            if (getResponse.errorCode == 0)
+            if (getResponse.ErrorCode == 0)
             {
-                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.recordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
+                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponse.FoundRecordCount + ", with " + getResponse.data.relatedTableNames.Count + " portals");
                 newRecordModId = Convert.ToInt32(getResponse.data.foundSet.records[0].modId);
             }
             else
             {
-                Console.WriteLine(getResponse.errorCode.ToString());
+                Console.WriteLine(getResponse.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -353,7 +353,7 @@ namespace fmDotNet__DataAPI_Demo
 
             // modify a field, in this case a repeating field
             string newValue = "99";
-            editRequest.AddRelatedField(relatedFieldName, TOname, newValue, relatedRecordId);
+            editRequest.AddRelatedField(relatedFieldName, TOname, newValue, relatedRecordId.ToString());
 
             // execute the request
             response = await editRequest.Execute();
@@ -387,13 +387,13 @@ namespace fmDotNet__DataAPI_Demo
 
             // execute the request
             var getResponsePartial = await findRequest.Execute();
-            if (getResponsePartial.errorCode == 0)
+            if (getResponsePartial.ErrorCode == 0)
             {
-                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponsePartial.recordCount + ", with " + getResponsePartial.data.relatedTableNames.Count + " portals");
+                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponsePartial.FoundRecordCount + ", with " + getResponsePartial.data.relatedTableNames.Count + " portals");
             }
             else
             {
-                Console.WriteLine(getResponsePartial.errorCode.ToString());
+                Console.WriteLine(getResponsePartial.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -410,13 +410,13 @@ namespace fmDotNet__DataAPI_Demo
             findRequest = fmserver.FindRequest(newRecordId);
             findRequest.AddPortal(portalName);
             getResponsePartial = await findRequest.Execute();
-            if (getResponsePartial.errorCode == 0)
+            if (getResponsePartial.ErrorCode == 0)
             {
-                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponsePartial.recordCount + ", with " + getResponsePartial.data.relatedTableNames.Count + " portals");
+                Console.WriteLine("record count for " + newRecordId.ToString() + " in " + fmserver.CurrentLayout + " is " + getResponsePartial.FoundRecordCount + ", with " + getResponsePartial.data.relatedTableNames.Count + " portals");
             }
             else
             {
-                Console.WriteLine(getResponsePartial.errorCode.ToString());
+                Console.WriteLine(getResponsePartial.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -451,7 +451,7 @@ namespace fmDotNet__DataAPI_Demo
             }
             else
             {
-                Console.WriteLine(getResponse.errorCode.ToString());
+                Console.WriteLine(getResponse.ErrorCode.ToString());
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
 
@@ -541,9 +541,9 @@ namespace fmDotNet__DataAPI_Demo
 
             // execute the request
             var getFindResponse = await getSelectedRecords.Execute();
-            if (getFindResponse.errorCode > 0)
+            if (getFindResponse.ErrorCode > 0)
             {
-                Console.WriteLine(getFindResponse.errorCode.ToString() + " - " + getFindResponse.result);
+                Console.WriteLine(getFindResponse.ErrorCode.ToString() + " - " + getFindResponse.result);
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
             else
@@ -580,9 +580,9 @@ namespace fmDotNet__DataAPI_Demo
 
             // execute the request
             getFindResponse = await getSelectedRecords.Execute();
-            if (getFindResponse.errorCode > 0)
+            if (getFindResponse.ErrorCode > 0)
             {
-                Console.WriteLine(getFindResponse.errorCode.ToString() + " - " + getFindResponse.result);
+                Console.WriteLine(getFindResponse.ErrorCode.ToString() + " - " + getFindResponse.result);
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
             else
@@ -619,9 +619,9 @@ namespace fmDotNet__DataAPI_Demo
 
             // execute the request
             getFindResponse = await getSelectedRecords.Execute();
-            if (getFindResponse.errorCode > 0)
+            if (getFindResponse.ErrorCode > 0)
             {
-                Console.WriteLine(getFindResponse.errorCode.ToString() + " - " + getFindResponse.result);
+                Console.WriteLine(getFindResponse.ErrorCode.ToString() + " - " + getFindResponse.result);
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
             else
@@ -648,9 +648,9 @@ namespace fmDotNet__DataAPI_Demo
             // get a random record back to confirm the values
             findRequest = fmserver.FindRequest(1);
             getFindResponse = await findRequest.Execute();
-            if (getFindResponse.errorCode > 0)
+            if (getFindResponse.ErrorCode > 0)
             {
-                Console.WriteLine(getFindResponse.errorCode.ToString() + " - " + getFindResponse.result);
+                Console.WriteLine(getFindResponse.ErrorCode.ToString() + " - " + getFindResponse.result);
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
             else
@@ -684,9 +684,9 @@ namespace fmDotNet__DataAPI_Demo
             // get a random record back to confirm the values
             findRequest = fmserver.FindRequest(1);
             getFindResponse = await findRequest.Execute();
-            if (getFindResponse.errorCode > 0)
+            if (getFindResponse.ErrorCode > 0)
             {
-                Console.WriteLine(getFindResponse.errorCode.ToString() + " - " + getFindResponse.result);
+                Console.WriteLine(getFindResponse.ErrorCode.ToString() + " - " + getFindResponse.result);
                 Console.WriteLine(fmserver.lastErrorCode.ToString() + " - " + fmserver.lastErrorMessage);
             }
             else
